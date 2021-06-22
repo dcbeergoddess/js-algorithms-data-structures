@@ -87,7 +87,129 @@ const { PerformanceObserver, performance } = require('perf_hooks');
 * COUNTING IS HARD
 - Depending on what we count, the number of operations can be as low as 2n or as high as 5n + 2
 - But regardless of the exact number, the number of operations grows roughly proportionally with *n*
+- If *n* doubles, the number of operations will also roughly double
 - WE CARE ABOUT THE GENERAL TREND --> BIG 0
+
+## Visualizing Time Complexities
+* [Performance Tracker](https://rithmschool.github.io/function-timer-demo/)
+- Blue line is slower function --> grey is faster function
+- ![Visualizing Time](assets/visual1.png)
+
+## Official Intro to Big O
+- Big O Notation is a way to formalize fuzzy counting
+- It allows for us to talk formally about how the runtime of an algorithm grows as the input grows
+- Watch the trends
+
+* **BIG O DEFINITIONS**
+- We say that an algorithm is **O(f(n))** if the number of simple operations the computer has to do is eventually less than a constant times **f(n)**, as **n** increases
+* f(n) could be linear (f(n) = n) (i.e. input: f(n) vs runtime: n)
+* f(n) could be quadratic (f(n) = n²)
+* f(n) could be constant (f(n) = 1)
+* f(n) could be something entirely different
+
+* **EXAMPLE**
+
+```js
+function addUpTo(n) {
+  return n * (n + 1) / 2;
+}
+// Always 3 Operations ==> Big O of 1 ==> O(1)
+//As n changed not reflected in the runtime
+
+function addUpTo(n) {
+  let total = 0;
+  for (let i = 1; i <= n; i++) {
+    total += i;
+  }
+  return total;
+}
+//Number of operations is (eventually) bounded by a multiple of n (say, 10n) ==> O(n)
+//runtime grows basically in a one to one ratio
+```
+- ![Another Example](assets/bigo1.png)
+- Only care about bigger picture so we simplify it down to O(n) even though there are two loops
+- ![Performance Tracker of Last Example](assets/bigo2.png)
+
+* **Nested Loop ==> OMG MOAR EXAMPLEZ**
+```js
+  function printAllPairs(n) {
+    for (let i = 0; i < n; i++) {
+      for (let j = 0; j < n; j++) {
+        console.log(i, j);
+      }
+    }
+  }
+```
+- ![Slide of Last Example](assets/bigo3.png)
+* O(n * n) ==> O(n²)
+- as n grows the runtime roughly grows at the rate of n squared
+- ![Performance Tracker of Last Example1](assets/bigo4.png)
+- ![Performance Tracker of Last Example2](assets/bigo5.png)
+
+## Simplifying Big O Expressions
+- When determining the time complexity of an algorithm, there are some helpful rules of thumb for big O expressions
+- These rules of thumb are consequences of the definition of big O notation
+- based of general FUZZY trends
+* CONSTANTS DON'T MATTER 
+1. O(2n) ==> O(n)
+2. O(500) ==> O(1)
+3. O(13n²) ==> O(n²)
+* SMALLER TERMS DON'T MATTER
+1. O(n + 10) ==> O(n)
+2. O(100n + 50) ==> O(n)
+3. O(n² + 5n + 8) ==> O(n²)
+
+* **BIG O SHORTHANDS**
+- Analyzing complexity with big O can get complicated
+- There are several rules of thumb that can help
+- These rules won't **ALWAYS** work, but are a helpful starting point
+1. Arithmetic operations are constant
+2. Variable assignment is constant
+3. Accessing elements in an array (by index) or object(by key) is constant
+4. In an loop, the complexity is the length of the loop times the complexity of whatever happens inside the loop
+
+- **Examples**
+```js
+//Prints Min of 5 numbers
+  function logAtLeast5(n) {
+    for (let i = 1; i <= Math.max(5, n); i++) {
+      console.log(i);
+    }
+  }
+
+  //BIG O ==> O(n) --> as n grows the number of operations grow
+```
+```js
+//This will log whatever number is smaller
+//will only take positive numbers, and 0 does nothing
+  function logAtMost5(n) {
+    for( let i = 1; i <= Math.min(5, n); i++) {
+      console.log(i);
+    }
+  }
+
+  //BIG O ==> as n grows the Big O is constant ==> O(1);
+```
+* CHART OF BIG O NOTATION
+- ![CHART OF BIG O NOTATION](assets/bigo6.png)
+
+* QUIZ ANSWER I GOT WRONG:
+1. Simplify `O(n^2 + n^3)` = `O(n^3)`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
