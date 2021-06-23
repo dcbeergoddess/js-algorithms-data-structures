@@ -196,6 +196,93 @@ function addUpTo(n) {
 * QUIZ ANSWER I GOT WRONG:
 1. Simplify `O(n^2 + n^3)` = `O(n^3)`
 
+## Space Complexity
+- So far, we've been focusing on **time complexity**: how can we analyze the *runtime* of an algorithm as the size of the inputs increase?
+- We can also use big O notation to analyze **space complexity**: how much additional memory do we need to allocate in order to run the code in our algorithm?
+* What about the inputs?
+- Sometimes you'll hear the term **auxiliary space complexity** to refer to space required by the algorithm, not including space taken up by the inputs.
+- Unless otherwise noted, when we talk about space complexity, technically we'll be talking about auxiliary space complexity.
+
+* **Space Complexity in JS** ==> Rules of Thumb
+- Most primitives (booleans, numbers, undefined, null) are constant space
+- Strings require O(n) space (where *n* is the string length)
+- Reference types are generally O(n), where *n* is the length (for arrays) or the number of keys (for objects)
+1. **Example**
+```js
+//Function takes array and sums all items in array
+  function sum(arr) {
+    let total = 0;
+    for (let i = 0; i < arr.length; i++) {
+      total += arr[i];
+    }
+    return total;
+  }
+  //O(1) --> Constant space --> We only have these two variables adn they exist no matter what, we are not adding any variables based off of the length --> we are adding to the total variable, but not making a new variable
+```
+- ![slide of example](assets/space1.png)
+
+1. **EXAMPLE**
+```js
+  //Double Every Number in Array
+  function double(arr) {
+    let newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+      newArr.push(2 * arr[i]);
+    }
+    return newArr;
+  }
+  //this is making a new array
+  //starts with making that new array 
+  //then loops over the length of the first array
+  //then it multiplies each item and pushes it on to new array
+  //then it returns new array
+  //O(n) SPACE! --> array gets longer directly in proportion to the length of the input --> space that's taken up is directly proportionate to n (to the input array)  
+```
+- ![Slide of Space Example](assets/space2.png)
+
+## Logs and Section Recap
+* **Logarithms**
+- We've encountered some of the most common complexities: O(1), O(n), O(n^2)
+- Sometimes big O expressions involve more complex mathematical expressions
+- One that appears more often that you might like is the logarithm!
+
+* ![WHAT IS A LOG AGAIN?](assets/log1.png)
+
+- a **logarithm** is the inverse of exponentiation
+- Just like *division & multiplication* are a pair --> *logarithms & exponents exponentiation* are a pair
+- Example in SLIDE: *log base two of eight equals three* --> what we are really calculating here is two to what power equals 8 --> 2 * 2 * 2 gives us 8 (3) --> 2^3 = 8
+- most common are binary logarithm --> log two --> base ten --> log E 
+- WE CARE ABOUT THE BIGGER PICTURE --> omit the 2
+- This isn't actually a mathematical operation on its own, you can't just take the log of a number --> you need to have a base
+* **RULE OF THUMB**: The logarithm of a number roughly measures the number of times you can divide that number by 2 *before you get a value that's less than or equal to 1*
+
+* **Logarithm Examples**
+- ![Logarithm Example slide](assets/log2.png)
+
+* **Logarithm Complexity**
+- ![Logarithm Complexity slide](assets/log3.png)
+- O(log n) is better than O(n)
+
+* Where this comes in play
+- Certain search algorithms have logarithmic time complexity
+- Efficient sorting algorithms involve logarithms
+- Recursion sometimes involves logarithmic space complexity
+- and more...
+
+## RECAP
+- To analyze the performance of an algorithm, we use Big O Notation
+- Big O Notation can give us a hig level understanding of the time or space complexity of an algorithm
+- Big O Notation doesn't care about precision, only about general trends (linear? quadratic? constant?)
+- The time or space complexity (as measured by Big O) depends only on the algorithm, not the hardware used to run the algorithm
+- Big O Notation is everywhere, so get lots of practice!
+
+
+
+
+
+
+
+
 
 
 
