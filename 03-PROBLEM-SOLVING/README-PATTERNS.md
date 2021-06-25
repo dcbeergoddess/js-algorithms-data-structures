@@ -27,6 +27,9 @@ same([1,2,3], [4,1,9]) // true
 same([1,2,3], [1,9]) // false
 same([1,2,1], [4,4,1]) // false (must be same frequency)
 ```
+- [Naive Solution](02-same-refactor.js) ==> WANT TO TRY AND AVOID NESTED LOOPS ==> quadratic time  
+- [Refactored Solution](03-same-refactor.js) ==> Time Complexity - O(n) --> loop over each array one time --> two separate loops different from two nested loops
+- Quick to access data in an object
 
 
 
