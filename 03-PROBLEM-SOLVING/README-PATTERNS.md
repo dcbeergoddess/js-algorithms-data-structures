@@ -31,8 +31,20 @@ same([1,2,1], [4,4,1]) // false (must be same frequency)
 - [Refactored Solution](03-same-refactor.js) ==> Time Complexity - O(n) --> loop over each array one time --> two separate loops different from two nested loops
 - Quick to access data in an object
 
-
-
+## ANAGRAMS
+- Given Two Strings, write a Function to determine if the second string is an anagram of the first.
+- An anagram is a word, phrase, or name formed by rearranging the letters of another, such as *cinema*, formed from 
+- If in interview setting ask about edge cases, spaces, lowercase words, etc. 
+- We can assume there won't be spaces 
+```js
+validAnagram('', '') // true
+validAnagram('aaz', 'zza') // false
+validAnagram('anagram', 'nagaram') // true
+validAnagram("rat","car") // false
+validAnagram('awesome', 'awesom') // false
+validAnagram('qwerty', 'qeywrt') // true
+validAnagram('texttwisttime', 'timetwisttext') // true
+```
 
 
 
