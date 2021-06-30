@@ -21,6 +21,8 @@ function validAnagram(str1, str2) {
       return false 
     }
   }
+  console.log(frequencyCounter1)
+  console.log(frequencyCounter2)
   return true
 }
 

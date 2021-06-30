@@ -12,6 +12,7 @@ function same(arr1, arr2) {
     //call index of where you pass in square of each value and check if it's in second array
     let correctIndex = arr2.indexOf(arr1[i] ** 2)
     //if returns -1 (meaning it's not in there)
+    console.log(correctIndex)
     if (correctIndex === -1) {
       return false;
     }

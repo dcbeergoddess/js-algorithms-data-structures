@@ -45,7 +45,8 @@ validAnagram('awesome', 'awesom') // false
 validAnagram('qwerty', 'qeywrt') // true
 validAnagram('texttwisttime', 'timetwisttext') // true
 ```
-
+- [MY SOLUTION](04-anagrams.js)
+- [COLT'S SOLUTION]
 
 
 
